@@ -119,7 +119,7 @@ setTimeout(function(){
 /* ARROW LOADER */
 
 /*setTimeout(function(){
-    var temp_x = document.getElementById('landing-arrow__component');
+    let temp_x = document.getElementById('landing-arrow__component');
     temp_x.style.display = "block";
    }, 6000);*/
 
@@ -138,36 +138,40 @@ for (let i = 0; i < title.length; i++) {
 }
 */
 
-/* UNHIDE RIGHT BRAIN */
+/* TOOGLE BRAIN SIDE */
 
-var rightBrainHover = document.getElementById('hlbo')
-var rightBrainGifHover = document.getElementById('hrb')
+let ArrowSection = document.getElementById('landing-arrow-icon');
 
-var rightBrainArrowSection = document.getElementById('landing-arrow-icon')
+/* TOGGLE RIGHT BRAIN */
+
+let rightBrainHover = document.getElementById('hrbo');
+let rightBrainGifHover = document.getElementById('hrb');
+
+let revealRightSection = document.getElementById('right-brain-things');
+
+let path = document.querySelectorAll('.cls-2');
 
 rightBrainHover.addEventListener("click", function() {
     if (rightBrainGifHover.classList.contains('active')) {
-        var path = document.querySelectorAll('.cls-2');
+        let path = document.querySelectorAll('.cls-2');
 
         rightBrainGifHover.classList.remove('active');
 
-        rightBrainArrowSection.classList.remove('active');
-
-        var revealRightSection = document.getElementById('right-brain-things');
+        ArrowSection.classList.remove('active');
 
         revealRightSection.classList.remove('active');
+
+        leftBrainHover.style.display = "block";
     }
     else {
         rightBrainGifHover.classList.add('active');
 
-        rightBrainArrowSection.classList.add('active');
+        ArrowSection.classList.add('active');
 
         /* RIGHT BRAIN ANIMATION */
 
-        var path = document.querySelectorAll('.cls-2');
-
         for (let i = 0; i < path.length; i++) {
-            var length = path[i].getTotalLength();
+            let length = path[i].getTotalLength();
 
             path[i].style.transition = path[i].style.WebkitTransition = 'none';
 
@@ -181,11 +185,70 @@ rightBrainHover.addEventListener("click", function() {
             path[i].style.strokeDashoffset = '0';
         }
 
-        var revealRightSection = document.getElementById('right-brain-things');
-
         revealRightSection.classList.add('active');
 
-        /*var toFill = document.getElementById('hlbo');
+        leftBrainHover.style.display = "none";
+
+        /*let toFill = document.getElementById('hlbo');
+
+        toFill.style.fill = 'none';
+        toFill.style.opacity = '0.1';
+
+        toFill.style.transition = toFill.style.WebkitTransition = 'to-fill 5s ease-in-out';
+
+        toFill.style.fill = '#00cbe7';
+        toFill.style.opacity = '1';*/
+    }
+}, false);
+
+/* TOGGLE LEFT BRAIN */
+
+let leftBrainHover = document.getElementById('hlbo');
+let leftBrainGifHover = document.getElementById('hlb');
+
+let revealLeftSection = document.getElementById('left-brain-things');
+
+let left_path = document.querySelectorAll('.cls-3');
+
+leftBrainHover.addEventListener("click", function() {
+    if (leftBrainGifHover.classList.contains('active')) {
+        let path = document.querySelectorAll('.cls-2');
+
+        leftBrainGifHover.classList.remove('active');
+
+        ArrowSection.classList.remove('active');
+
+        revealLeftSection.classList.remove('active');
+
+        rightBrainHover.style.display = "block";
+    }
+    else {
+        leftBrainGifHover.classList.add('active');
+
+        ArrowSection.classList.add('active');
+
+        /* LEFT BRAIN ANIMATION */
+
+        for (let i = 0; i < left_path.length; i++) {
+            let length = left_path[i].getTotalLength();
+
+            left_path[i].style.transition = left_path[i].style.WebkitTransition = 'none';
+
+            left_path[i].style.strokeDasharray = length;
+            left_path[i].style.strokeDashoffset = length;
+
+            left_path[i].getBoundingClientRect();
+
+            left_path[i].style.transition = left_path[i].style.WebkitTransition = 'stroke-dashoffset 5s ease-in-out';
+
+            left_path[i].style.strokeDashoffset = '0';
+        }
+
+        revealLeftSection.classList.add('active');
+
+        rightBrainHover.style.display = "none";
+
+        /*let toFill = document.getElementById('hlbo');
 
         toFill.style.fill = 'none';
         toFill.style.opacity = '0.1';
@@ -202,11 +265,11 @@ rightBrainHover.addEventListener("click", function() {
 
 /* SCROLLING ANIMATION */
 
-/*var temp = 0;
-var currentScroll = 0;
+/*let temp = 0;
+let currentScroll = 0;
 
 window.addEventListener('scroll', function() {
-    var nextScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    let nextScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     developerSectionScroll = document.getElementById('developer-page').offsetTop;
     developerSectionScrollTwo = developerSectionScroll + 300;

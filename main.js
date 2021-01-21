@@ -1,308 +1,316 @@
-/* CARD PARALLAX EFFECT */
+window.onload = function(){
+    setTimeout(loadLanding, 1000)
+    setTimeout(loadLandingAnimation, 1800);
+};
 
-/*class parallaxTiltEffect {
-    constructor({element, tiltEffect}) {
-        this.element = element;
-        this.container = this.element.querySelector(".container");
-        this.size = [300, 360];
-        [this.w, this.h] = this.size;
-
-        this.tiltEffect = tiltEffect;
-        this.mouseOnComponent = false;
-
-        this.handleMouseMove = this.handleMouseMove.bind(this);
-        this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
-        this.defaultStates = this.defaultStates.bind(this);
-        this.setProperty = this.setProperty.bind(this);
-        this.init = this.init.bind(this);
-
-        this.init();
-    }
-
-    handleMouseMove(event) {
-        const {offsetX, offsetY} = event;
-        let X, Y;
-
-        if (this.tiltEffect == "normal") {
-            X = (-(offsetX - (this.w / 2)) / 3) / 3;
-            Y = ((offsetY - (this.h / 2)) / 3) / 3;
-        }
-
-        this.setProperty('--rY', X.toFixed(2));
-        this.setProperty('--rX', Y.toFixed(2));
-
-        this.setProperty('--bY', (80 - (X/4).toFixed(2)) + '%');
-        this.setProperty('--bX', (80 - (Y/4).toFixed(2)) + '%');
-    }
-
-    handleMouseEnter() {
-        this.mouseOnComponent = true;
-        this.container.classList.add("active-mode");
-    }
-
-    handleMouseLeave() {
-        this.mouseOnComponent = false;
-        this.defaultStates();
-    }
-
-    defaultStates() {
-        this.container.classList.remove("active-mode");
-        this.setProperty('--rY', 0);
-        this.setProperty('--rX', 0);
-
-        this.setProperty('--bY', '80%');
-        this.setProperty('--bX', '50%');
-    }
-
-    setProperty(p, v) {
-        return this.container.style.setProperty(p, v);
-    }
-
-    init() {
-        this.element.addEventListener('mousemove', this.handleMouseMove);
-        this.element.addEventListener('mouseenter', this.handleMouseEnter);
-        this.element.addEventListener('mouseleave', this.handleMouseLeave);
-    }
+function loadLanding() {
+    document.getElementById('regular-screen').classList.add('active');
 }
 
-const $ = e => document.querySelector(e);
+function loadLandingAnimation() {
+    document.getElementById('matt-page').style.display = "block";
+}; // load paint strokes and name animation
 
-const wrap1 = new parallaxTiltEffect({
-    element: $('.card-wrap-1'),
-    tiltEffect: 'normal'
-})
+const cursor = document.querySelector('.cursor');
+const innerCursor = document.querySelector('.inner-cursor');
+const leftArrowCursor = document.querySelector('.left-arrow-cursor');
+const rightArrowCursor = document.querySelector('.right-arrow-cursor');
 
-const wrap2 = new parallaxTiltEffect({
-    element: $('.card-wrap-2'),
-    tiltEffect: 'normal'
-})
+const screenModeTag = document.querySelector('#light-dark-tag');
+const sectionsTag = document.querySelector('#click-tag');
+const exploreTag = document.querySelector('#explore-tag');
+const emailTag = document.querySelector('#contact-tag');
 
-const wrap3 = new parallaxTiltEffect({
-    element: $('.card-wrap-3'),
-    tiltEffect: 'normal'
-})*/
+document.addEventListener('mousemove', e => {
+    cursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
+    innerCursor.style.top = e.pageY;
+    innerCursor.style.left = e.pageX;
+    //innerCursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
+    leftArrowCursor.style.top = e.pageY;
+    leftArrowCursor.style.left = e.pageX;
+    //leftArrowCursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
+    rightArrowCursor.style.top = e.pageY;
+    rightArrowCursor.style.left = e.pageX;
 
-/* - - - - - - - - - - MENU BUTTON ANIMATION - - - - - - - - - -*/
+    screenModeTag.style.top = e.pageY;
+    screenModeTag.style.left = e.pageX + 40;
 
-const menuButton = document.querySelector('.menu-button');
-const sidebar = document.querySelector('.side-navbar');
-let menuOpen = false;
+    sectionsTag.style.top = e.pageY;
+    sectionsTag.style.left = e.pageX + 40;
 
-menuButton.addEventListener('click', () => {
-    if (!menuOpen) {
-        menuButton.classList.add('open');
+    exploreTag.style.top = e.pageY;
+    exploreTag.style.left = e.pageX + 40;
 
-        sidebar.classList.remove('close');
-        sidebar.classList.add('open');
-        //sidebar.style.display = "flex";
-        menuOpen = true;
-    }
-    else {
-        menuButton.classList.remove('open');
-        
-        sidebar.classList.remove('open');
-        sidebar.classList.add('close');
-        //sidebar.style.display = "none";
-        menuOpen = false;
-    }
+    emailTag.style.top = e.pageY;
+    emailTag.style.left = e.pageX - 150;
 });
 
-/* GIF LOADER */
+document.addEventListener('click', e => {
+    cursor.classList.add("click");
 
-/*
-setTimeout(function(){
-    document.getElementById('gif').style.display = "initial";
-   }, 9000);
-*/
+    setTimeout(() => {
+        cursor.classList.remove("click");
+    }, 200)
+});
 
-/* ARROW LOADER */
+/*const linkedinButton = document.querySelector('#linkedin');
+const githubButton = document.querySelector('#github');
+const mediumButton = document.querySelector('#medium');
+const facebookButton = document.querySelector('#facebook');*/
+const socialsButton = document.querySelectorAll('.socials-title');
+//const socialIcons = document.querySelector('.tab-list-socials');
 
-/*setTimeout(function(){
-    let temp_x = document.getElementById('landing-arrow__component');
-    temp_x.style.display = "block";
-   }, 6000);*/
+socialsButton.forEach(element => {
+    element.addEventListener("mouseover", e => {
+        /*if (socials.classList.contains("active")) {
+            innerCursor.style.opacity = 0;
+            leftArrowCursor.style.opacity = 0;
+            rightArrowCursor.style.opacity = 1;
+        }
+        else {*/
+            innerCursor.style.opacity = 0;
+            leftArrowCursor.style.opacity = 0;
+            rightArrowCursor.style.opacity = 1;
+            cursor.classList.add('active');
+        //}
+    });
 
-/* ARROW ACTION */
+    element.addEventListener("mouseleave", e=> {
+        innerCursor.style.opacity = 1;
+        leftArrowCursor.style.opacity = 0;
+        rightArrowCursor.style.opacity = 0;
+        cursor.classList.remove('active');
+    });
+    
+    /*element.addEventListener("click", e => {
+        if (socials.classList.contains("active")) {
+            socials.classList.remove("active");
+            socialIcons.classList.remove("active");
+        }
+        else {
+            socials.classList.add("active");
+            socialIcons.classList.add("active");
+        }
+    
+        setTimeout(() => {
+            if (socials.classList.contains("active")) {
+                innerCursor.style.opacity = 0;
+                leftArrowCursor.style.opacity = 0;
+                rightArrowCursor.style.opacity = 1;
+            }
+            else {
+                innerCursor.style.opacity = 0;
+                leftArrowCursor.style.opacity = 1;
+                rightArrowCursor.style.opacity = 0;
+            }
+        }, 100)
+    });*/
+})
 
+const screenMode = document.querySelectorAll('.light-dark-toggle');
+const mobileScreen = document.querySelector(".mobile-screen");
+const desktopScreen = document.querySelector(".regular-screen");
 
-/* DEVLOPER SECTION TEXT */
+screenMode.forEach(element => {
+    element.addEventListener("click", e => {
+        console.log("hi")
+        if (mobileScreen.classList.contains("light") || desktopScreen.classList.contains("light")) {
+            mobileScreen.classList.remove("light");
+            mobileScreen.classList.add("dark");
 
-/* TEXT ANIMATOR */
+            desktopScreen.classList.remove("light");
+            desktopScreen.classList.add("dark");
+        }
+        else {
+            mobileScreen.classList.remove("dark");
+            mobileScreen.classList.add("light");
 
-/*
-const title = document.querySelectorAll("#title polygon")
+            desktopScreen.classList.remove("dark");
+            desktopScreen.classList.add("light");
+        }
+    })
 
-for (let i = 0; i < title.length; i++) {
-    console.log(`Letter ${i} is ${title[i].getTotalLength()}`);
+    element.addEventListener("mouseover", e => {
+        screenModeTag.style.display = "block";
+    })
+
+    element.addEventListener("mouseleave", e => {
+        screenModeTag.style.display = "none";
+    })
+});
+
+const contact = document.querySelector(".contact-wrapper");
+const contactH3Content = document.querySelector("#contact-tag");
+
+contact.addEventListener("mouseover", e => {
+    /*innerCursor.style.opacity = 0;
+    rightArrowCursor.style.opacity = 1;*/
+
+    contact.classList.add('active');
+    cursor.classList.add('active');
+    emailTag.style.display = "block";
+    innerCursor.style.background = "#9FBBC9"
+})
+
+contact.addEventListener("mouseleave", e => {
+    /*innerCursor.style.opacity = 1;
+    rightArrowCursor.style.opacity = 0;*/
+    contact.classList.remove('active');
+    cursor.classList.remove('active');
+    emailTag.style.display = "none";
+    if (mobileScreen.classList.contains("light") || desktopScreen.classList.contains("light")) {
+        innerCursor.style.background = "#EAD8BF"
+    }
+    else {
+        innerCursor.style.background = "#F3F3F3"
+    }
+})
+
+contact.addEventListener("click", e => {
+    var copyText = "matthewchen@g.ucla.edu";
+    copyToClipboard(copyText);
+    contactH3Content.style.paddingLeft = "15px";
+    contactH3Content.innerHTML = "copied email";
+    setTimeout(() => {
+        contactH3Content.style.paddingLeft = "0px";
+        contactH3Content.innerHTML = "send me an email";
+    }, 500)
+})
+
+function copyToClipboard(text) {
+    var dummy = document.createElement("input");
+    document.body.appendChild(dummy);
+    dummy.setAttribute('value', text);
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
 }
-*/
 
-/* TOOGLE BRAIN SIDE */
+const circle_developer = document.querySelector('#circle2a');
+const circle_designer = document.querySelector('#circle3a');
+const circle_student = document.querySelector('#circle4a');
+const circle_photographer = document.querySelector('#circle1a');
 
-let ArrowSection = document.getElementById('landing-arrow-icon');
+const description_regular = document.querySelector('#about-me');
+const description_developer = document.querySelector('#developer');
+const description_designer = document.querySelector('#designer');
+const description_student = document.querySelector('#student');
+const description_photographer = document.querySelector('#photographer');
 
-/* TOGGLE RIGHT BRAIN */
+circle_developer.addEventListener("mouseover", e => {
+    description_regular.classList.remove("active");
+    description_developer.classList.add("active");
+})
 
-let rightBrainHover = document.getElementById('hrbo');
-let rightBrainGifHover = document.getElementById('hrb');
+circle_developer.addEventListener("mouseleave", e => {
+    //setTimeout(() => {
+        description_developer.classList.remove("active");
+        description_regular.classList.add("active");
+    //}, 500)
+})
 
-let revealRightSection = document.getElementById('right-brain-things');
+circle_designer.addEventListener("mouseover", e => {
+    description_regular.classList.remove("active");
+    description_designer.classList.add("active");
+    sectionsTag.style.display = "block";
+})
 
-let path = document.querySelectorAll('.cls-2');
+circle_designer.addEventListener("mouseleave", e => {
+    description_designer.classList.remove("active");
+    description_regular.classList.add("active");
+    sectionsTag.style.display = "none";
+})
 
-rightBrainHover.addEventListener("click", function() {
-    if (rightBrainGifHover.classList.contains('active')) {
-        let path = document.querySelectorAll('.cls-2');
+circle_designer.addEventListener("click", e => {
+    //design_section.style.display = "block";
+    design_section.classList.add('active')
+})
 
-        rightBrainGifHover.classList.remove('active');
+circle_student.addEventListener("mouseover", e => {
+    description_regular.classList.remove("active");
+    description_student.classList.add("active");
+})
 
-        ArrowSection.classList.remove('active');
+circle_student.addEventListener("mouseleave", e => {
+    description_student.classList.remove("active");
+    description_regular.classList.add("active");
+})
 
-        revealRightSection.classList.remove('active');
+circle_photographer.addEventListener("mouseover", e => {
+    description_regular.classList.remove("active");
+    description_photographer.classList.add("active");
+    sectionsTag.style.display = "block";
+})
 
-        leftBrainHover.style.display = "block";
+circle_photographer.addEventListener("mouseleave", e => {
+    description_photographer.classList.remove("active");
+    description_regular.classList.add("active");
+    sectionsTag.style.display = "none";
+})
+
+circle_photographer.addEventListener("click", e => {
+    //photograph_section.style.display = "block";
+    photograph_section.classList.add("active");
+})
+
+const design_section = document.querySelector('#designer-page');
+const designs = document.querySelectorAll('.design');
+
+design_section.addEventListener("mouseover", e => {
+    designs.forEach(element => {
+        element.addEventListener('mouseover', e => {
+            innerCursor.style.opacity = 1;
+            leftArrowCursor.style.opacity = 0;
+            cursor.classList.remove('active');
+        })
+    
+        element.addEventListener('mouseleave', e => {
+            innerCursor.style.opacity = 0;
+            leftArrowCursor.style.opacity = 1;
+            cursor.classList.add('active');
+        })
+    })
+})
+
+design_section.addEventListener("mouseleave", e => {
+    innerCursor.style.opacity = 1;
+    leftArrowCursor.style.opacity = 0;
+    cursor.classList.remove('active');
+})
+
+design_section.addEventListener("click", e => {
+    if (cursor.classList.contains('active')) {
+        design_section.classList.remove('active')
     }
-    else {
-        rightBrainGifHover.classList.add('active');
+})
 
-        ArrowSection.classList.add('active');
+const photograph_section = document.querySelector('#photographer-page');
+const photographs = document.querySelectorAll('.photograph');
 
-        /* RIGHT BRAIN ANIMATION */
+photograph_section.addEventListener("mouseover", e => {
+    photographs.forEach(element => {
+        element.addEventListener('mouseover', e => {
+            innerCursor.style.opacity = 1;
+            leftArrowCursor.style.opacity = 0;
+            cursor.classList.remove('active');
+        })
+    
+        element.addEventListener('mouseleave', e => {
+            innerCursor.style.opacity = 0;
+            leftArrowCursor.style.opacity = 1;
+            cursor.classList.add('active');
+        })
+    })
+})
 
-        for (let i = 0; i < path.length; i++) {
-            let length = path[i].getTotalLength();
+photograph_section.addEventListener("mouseleave", e => {
+    innerCursor.style.opacity = 1;
+    leftArrowCursor.style.opacity = 0;
+    cursor.classList.remove('active');
+})
 
-            path[i].style.transition = path[i].style.WebkitTransition = 'none';
-
-            path[i].style.strokeDasharray = length;
-            path[i].style.strokeDashoffset = length;
-
-            path[i].getBoundingClientRect();
-
-            path[i].style.transition = path[i].style.WebkitTransition = 'stroke-dashoffset 10s ease-in-out';
-
-            path[i].style.strokeDashoffset = '0';
-        }
-
-        revealRightSection.classList.add('active');
-
-        leftBrainHover.style.display = "none";
-
-        /*let toFill = document.getElementById('hlbo');
-
-        toFill.style.fill = 'none';
-        toFill.style.opacity = '0.1';
-
-        toFill.style.transition = toFill.style.WebkitTransition = 'to-fill 5s ease-in-out';
-
-        toFill.style.fill = '#00cbe7';
-        toFill.style.opacity = '1';*/
+photograph_section.addEventListener("click", e => {
+    if (cursor.classList.contains('active')) {
+        photograph_section.classList.remove("active");
     }
-}, false);
-
-/* TOGGLE LEFT BRAIN */
-
-let leftBrainHover = document.getElementById('hlbo');
-let leftBrainGifHover = document.getElementById('hlb');
-
-let revealLeftSection = document.getElementById('left-brain-things');
-
-let left_path = document.querySelectorAll('.cls-3');
-
-leftBrainHover.addEventListener("click", function() {
-    if (leftBrainGifHover.classList.contains('active')) {
-        let path = document.querySelectorAll('.cls-2');
-
-        leftBrainGifHover.classList.remove('active');
-
-        ArrowSection.classList.remove('active');
-
-        revealLeftSection.classList.remove('active');
-
-        rightBrainHover.style.display = "block";
-    }
-    else {
-        leftBrainGifHover.classList.add('active');
-
-        ArrowSection.classList.add('active');
-
-        /* LEFT BRAIN ANIMATION */
-
-        for (let i = 0; i < left_path.length; i++) {
-            let length = left_path[i].getTotalLength();
-
-            left_path[i].style.transition = left_path[i].style.WebkitTransition = 'none';
-
-            left_path[i].style.strokeDasharray = length;
-            left_path[i].style.strokeDashoffset = length;
-
-            left_path[i].getBoundingClientRect();
-
-            left_path[i].style.transition = left_path[i].style.WebkitTransition = 'stroke-dashoffset 5s ease-in-out';
-
-            left_path[i].style.strokeDashoffset = '0';
-        }
-
-        revealLeftSection.classList.add('active');
-
-        rightBrainHover.style.display = "none";
-
-        /*let toFill = document.getElementById('hlbo');
-
-        toFill.style.fill = 'none';
-        toFill.style.opacity = '0.1';
-
-        toFill.style.transition = toFill.style.WebkitTransition = 'to-fill 5s ease-in-out';
-
-        toFill.style.fill = '#00cbe7';
-        toFill.style.opacity = '1';*/
-
-        
-
-    }
-}, false);
-
-/* SCROLLING ANIMATION */
-
-/*let temp = 0;
-let currentScroll = 0;
-
-window.addEventListener('scroll', function() {
-    let nextScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
-    developerSectionScroll = document.getElementById('developer-page').offsetTop;
-    developerSectionScrollTwo = developerSectionScroll + 300;
-
-    if (nextScroll > currentScroll){
-        if (nextScroll < developerSectionScrollTwo && nextScroll >= developerSectionScroll) {
-            if (temp >= -44) {
-                temp--;
-            }
-        }
-    }
-    else {
-        if (nextScroll < developerSectionScrollTwo && nextScroll >= developerSectionScroll) {
-            if (temp <= -1) {
-                temp++
-            }
-        }
-    }
-
-    console.log(temp)
-
-    if (nextScroll >= developerSectionScroll) {
-        document.getElementById('first-section').setAttribute("style", "position: fixed; top: 50%; margin-top: 0;");
-        document.getElementById('bottom-first-section').style.opacity = (250 - (nextScroll - developerSectionScroll)) / 250;
-        document.getElementById('bottom-first-section').style.transform = "translateY(" + temp + "px)";
-    }
-
-    if (nextScroll < developerSectionScroll) {
-        document.getElementById('first-section').setAttribute("style", "position: absolute; top: none; margin-top: 50vh;");
-        document.getElementById('bottom-first-section').style.transform = "translateY(" + 0 + "px)";
-    }
-
-    document.getElementById('bottom-second-section').style.opacity = (nextScroll - developerSectionScroll) / 275;
-
-    currentScroll = nextScroll;
-}, false);*/
+})

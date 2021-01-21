@@ -1,10 +1,45 @@
+// COLORS
 $primary-color: #000000
 $secondary-color: #F3F3F3
 
+// FONTS
 $main-font: century-gothic, sans-serif
 $light: 400
 $heavy: 700
 
+$second-font: multicolore, sans-serif
+
+@font-face 
+    font-family: multicolore
+    src: url(fonts/multicolore.otf)
+@font-face
+    font-family: karbonSB
+    src: url(fonts/karbon-semibold.otf)
+@font-face
+    font-family: karbonR
+    src: url(fonts/karbon-regular.otf)
+
+
+// SCREEN SIZES
+$mobile-small: 424px
+$mobile-large: 767px
+$tablet: 1023px
+$laptop-small: 1439px
+$laptop-large: 2569px
+
+@media only screen and ( max-width: $tablet )
+    .mobile-screen
+        display: block
+
+    .regular-screen
+        display: none
+
+@media only screen and ( min-width: $tablet )
+    .mobile-screen
+        display: none
+    
+    .regular-screen
+        display: block
 
 *, *:after, *:before
     margin: 0
@@ -13,479 +48,814 @@ $heavy: 700
 
 html 
     font-size: 67.5%
+    scroll-behavior: smooth
 
 body
     margin: 0 
-
-#sticky
-    position: fixed
-    color: #fff
-    font-size: 25px
-
-.menu-button
-    position: fixed
-    margin: 21.5px 0 0 21.5px
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 32px
-    height: 32px
-    cursor: pointer
-    transition: all 0.5s ease-in-out
-    z-index: 101
-
-    .menu-button__burger
-        position: absolute
-        top: 10px
-        width: 32px
-        height: 4px
-        background: #ffffff
-        border-radius: 6px
-        box-shadow: 0 2px 5px rgba(255,101,47,0.2)
-        transition: all 0.5s ease-in-out
-
-        &::before, &::after
-            content: ''
-            position: absolute
-            width: 32px
-            height: 4px
-            background: #ffffff
-            border-radius: 6px
-            transition: all 0.5s ease-in-out
-
-        &::before
-            transform: translateY(-10px)
-
-        &::after
-            transform: translateY(10px)
-
-.menu-button.open 
-    .menu-button__burger
-        transform: translateX(-70px)
-        background: transparent
-        box-shadow: none
-
-        &::before
-            transform: rotate(45deg) translate(50px, -50px)
-            background: #000000
-
-        &::after
-            transform: rotate(-45deg) translate(50px, 50px)
-            background: #000000
-
-.side-navbar
-    position: fixed
-    z-index: 100
-    overflow-x: hidden
-
-    justify-content: center
-    display: flex
-
-    width: 75px
+    background-color: #F3F3F3
+    cursor: none
+    overflow: hidden
+    
+.quick-about-wrapper
+    width: 100vw
     height: 100vh
 
-    background-color: $secondary-color
+    font-family: karbonSB
 
-    left: -75px
-                  
-    .socials-container
+    background-size: 400% 400%
+
+    -webkit-animation: mobile-background 9s ease infinite
+    -moz-animation: mobile-background 9s ease infinite
+    animation: mobile-background 9s ease infinite
+
+    @keyframes mobile-background 
+        0% 
+            background-position: 5% 0%
+        50% 
+            background-position: 96% 100%
+        100% 
+            background-position: 5% 0%
+    
+
+    .content-wrapper
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+        #logo
+            height: 30px
+            margin: 0 0 6vh 6px
+
+        .light-dark-toggle
+            position: absolute
+            transform: translateY(-5px)
+            margin: 0 0 0 8px
+            height: 20px
+            width: 20px
+            z-index: 100
+
+        .titles
+            font-size: 100px
+            line-height: 100px
+
+        .about
+            font-size: 30px
+            font-family: karbonR
+            line-height: 36px
+            letter-spacing: 0.75px
+            margin: 4vh 0 0 0
+
+        .socials
+            display: flex
+            a
+                text-decoration: none
+                cursor: none
+                padding: 4vh 25px 0 0
+
+                .socials-title
+                    font-family: karbonR
+                    font-size: 20px
+                    letter-spacing: 0.5px
+                    z-index: 100
+                    opacity: 0.75
+
+                    &:hover
+                        animation: hover-opacity 0.25s linear 0s forwards
+
+                        @keyframes hover-opacity
+                            0%
+                                opacity: 0.75
+                            100%
+                                opacity: 1
+
+        .contact
+            width: 250px
+            display: inline-block
+            border-radius: 100px
+            text-align: center
+            font-family: karbonR
+            font-size: 25px
+            padding: 15px 15px 10px 15px
+            margin: 4vh 0 0 0
+            border: 0
+            line-height: inherit
+            text-decoration: none
+            cursor: pointer
+
+.mobile-screen.light
+    .quick-about-wrapper
+        background: linear-gradient(322deg, #f3f3f3, #f3f3f3)
+
+        .content-wrapper
+            #logo
+                fill: #505050
+
+            .light-dark-toggle
+                .circle
+                    color: #000
+
+            .titles
+                color: #505050
+
+            .about
+                color: #505050
+                opacity: 0.75
+
+            .socials
+                a
+                    .socials-title
+                        color: #505050
+                        opacity: 0.6
+            .contact
+                border-color: #3898EC
+                background-color: #3898EC
+                color: #f0f0f0
+
+.mobile-screen.dark
+    .quick-about-wrapper
+        background: linear-gradient(322deg, #000, #000)
+
+        .content-wrapper
+            #logo
+                fill: #f0f0f0
+
+            .light-dark-toggle
+                .circle
+                    color: #f0f0f0
+
+            .titles
+                color: #f0f0f0
+
+            .about
+                color: #f0f0f0
+                opacity: 0.8
+
+            .socials
+                a
+                    .socials-title
+                        color: #f0f0f0
+                        opacity: 0.6
+            
+            .contact
+                border-color: #f0f0f0
+                background-color: #f0f0f0
+                color: #505050
+
+.regular-screen
+    opacity: 0
+
+    .cursor
+        pointer-events: none
+        z-index: 1000
+        width: 70px
+        height: 70px
+        border-radius: 50%
+        position: absolute
+        transform: translate(-50%, -50%)
+        transition-duration: 200ms
+        transition-timing-function: ease-out
+        
+    .cursor.click
+        animation: on-click .25s forwards
+        
+        @keyframes on-click 
+            50% 
+                width: 75px
+                height: 75px
+            100% 
+                width: 70px
+                height: 70px
+
+    .inner-cursor
+        pointer-events: none
+        z-index: 1000
+        width: 12px
+        height: 12px
+        border-radius: 50%
+        position: absolute
+        transform: translate(-50%, -50%)
+        opacity: 1
+
+    .left-arrow-cursor
+        pointer-events: none
+        z-index: 1000
+        position: absolute
+        transform: translate(-50%, -50%)
+        opacity: 0
+
+        #left-arrow-icon
+            width: 14px
+            height: 13px
+
+    .right-arrow-cursor
+        pointer-events: none
+        z-index: 1000
+        position: absolute
+        transform: translate(-50%, -50%)
+        opacity: 0
+
+        #right-arrow-icon
+            width: 14px
+            height: 13px
+
+    .explore-tag-wrapper
+        #explore-tag
+            display: none
+            position: absolute
+            font-family: karbonR
+            font-size: 16px
+            transform: translateY(-50%)
+
+    .nav-bar-top
+        .logo-wrapper
+            position: absolute
+            top: 0
+            left: 0
+            padding: 5vh 0 0 3vw
+            height: 60px
+
+            #logo-button
+                cursor: none
+
+            #logo
+                height: 30px
+
+        .contact-wrapper
+            z-index: 100
+            position: absolute
+            top: 0
+            right: 0
+            padding: 5vh 3vw 6vh 5vw
+            height: 60px
+            opacity: 0.65
+
+            #nav-button
+                text-decoration: none
+                font-family: karbonR
+                font-size: 20px
+                vertical-align: middle
+                line-height: 30px
+                cursor: none
+
+        .contact-wrapper.active
+            animation: hover-opacity 0.25s linear 0s forwards
+
+            @keyframes hover-opacity
+                0%
+                    opacity: 0.65
+                100%
+                    opacity: 1
+        
+
+        .contact-tag-wrapper
+            #contact-tag
+                display: none
+                position: absolute
+                font-family: karbonR
+                font-size: 16px
+                transform: translateY(-50%)
+                z-index: 505
+                animation: fadeup 2s forwards
+                opacity: 0
+        
+                @keyframes fadeup 
+                    0%
+                        transform: translateY(50%)
+                        opacity: 0
+                    100% 
+                        opacity: 1
+                        transform: translateY(-50%)
+
+    .light-dark-toggle
+        position: absolute
+        transform: translateY(-8px)
+        margin: 0 0 0 8px
+        height: 20px
+        width: 20px
+        z-index: 100
+
+    .light-dark-toggle-description
+        #light-dark-tag
+            display: none
+            position: absolute
+            font-family: karbonR
+            font-size: 16px
+            transform: translateY(-50%)
+            animation: fadeup 2s forwards
+            opacity: 0
+    
+            @keyframes fadeup 
+                0%
+                    transform: translateY(50%)
+                    opacity: 0
+                100% 
+                    opacity: 1
+                    transform: translateY(-50%)
+
+    .nav-bar-side
         position: absolute
         top: 50%
         transform: translateY(-50%)
 
-        margin: auto
+        font-size: 16px
+        font-family: karbonR
+        line-height: 24px
+        letter-spacing: 0.75px
 
-        display: flex
-        flex-direction: column
-        flex-wrap: nowrap
+        .description
+            display: none
 
-        .social-icons
-            margin: 10px 0 10px 0
+        .description.active
+            display: block
+            animation: fadeup 2s forwards
+        
+            @keyframes fadeup 
+                0%
+                    transform: translateY(50%)
+                    opacity: 0
+                100% 
+                    opacity: 1
+                    transform: translateY(-50%)
 
-            width: 30px
-            height: 30px   
+        #about-me
+            margin-left: 6vw
+            width: 125px 
 
-            filter: drop-shadow(1.5px 1.5px 1px rgba(0, 0, 0, 0.5)) 
+        #developer
+            margin-left: 3vw
+            width: 250px
+
+        #designer
+            margin-left: 4vw
+            width: 205px
+
+        #student
+            margin-left: 4vw
+            width: 250px
+
+        #photographer
+            margin-left: 4vw
+            width: 210px
+
+        //.tab-list
+            //list-style-type: none
+
+            //.tab
+                //margin: 5px 0 5px 0
+
+            //.tab.active
+                //font-size: 20px
+                //color: #505050
+                //margin: 10px 0 10px 25px
+
+    .nav-bar-socials
+        overflow: hidden
+        
+        a
+            text-decoration: none
+            cursor: none
+
+        .socials-title
+            position: absolute
+            right: 0
+            transform: translateY(-50%) rotate(180deg)
+            font-family: karbonR
+            font-size: 16px
+            letter-spacing: 0.5px
+            writing-mode: vertical-rl
+            text-orientation: mixed
+            padding: 1vh 2vw 1vh 2vw
+            z-index: 100
+            opacity: 0.65
 
             &:hover
-                transform: scale(1.15)
-                transition: transform 0.5s
-                transition-timing-function: ease-out;
+                animation: hover-opacity 0.25s linear 0s forwards
 
-.side-navbar.open
-    transform: translateX(75px)
-    transition: transform 1s
+                @keyframes hover-opacity
+                    0%
+                        opacity: 0.65
+                    100%
+                        opacity: 1
 
-.side-navbar.close
-    transform: translateX(-75px)
-    transition: transform 1s
+        #linkedin
+            top: 38%
 
-.main-section
-    overflow-x: hidden
+        #github
+            top: 46%
 
-.landing-screen
-    width: 100%
-    height: 100%
+        #medium
+            top: 54%
 
-    background-color: $primary-color
+        #facebook
+            top: 62%
 
-    .landing-gif
-        #gif
+    .nav-bar-designs
+        overflow: hidden
+
+        .designs-title
             position: absolute
             top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
-            width: 70vw
-            //margin-left: 35px
-            //margin-right: 291px
-            z-index: 1
+            right: 0
+            transform: translateY(-50%) rotate(180deg)
+            font-family: karbonR
+            font-size: 20px
+            writing-mode: vertical-rl
+            text-orientation: mixed
+            padding: 6vh 3vw 6vh 2vw
+            z-index: 100
 
-    .landing-overlay
-        #landing-gif-overlay
+    .nav-bar-developer
+        overflow: hidden
+
+        .developer-title
             position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
-            width: 70vw
-            //margin-left: 35px
-            //margin-right: 291px
-            z-index: 2
-            opacity: 0%
-            animation: image-reveal 6s ease forwards
+            top: 25%
+            right: 0
+            transform: translateY(-50%) rotate(180deg)
+            font-family: karbonR
+            font-size: 20px
+            writing-mode: vertical-rl
+            text-orientation: mixed
+            padding: 6vh 3vw 6vh 2vw
+            z-index: 100
 
-            @keyframes image-reveal
-                80%
-                    opacity: 0%
-                100%
-                    opacity: 100%
-                    z-index: 4
+    .nav-bar-photographer
+        overflow: hidden
 
-    .hover-right-brain
-        display: none
-
-        svg
+        .photographer-title
             position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
-            width: 70vw
-            z-index: 5
+            top: 75%
+            right: 0
+            transform: translateY(-50%) rotate(180deg)
+            font-family: karbonR
+            font-size: 20px
+            writing-mode: vertical-rl
+            text-orientation: mixed
+            padding: 6vh 3vw 6vh 2vw
+            z-index: 100
 
-    .hover-right-brain.active
-        display: block
-       
-    .hover-right-brain-overlay
-        svg
-            position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-96.125%, -50%) 
-            width: 36.5vw
-            z-index: 6
-            fill: none
-            
-            .cls-1
-                opacity: 0.1
-                fill: #000
-                stroke: #fff
-
-                &:hover
-                    fill: #fff
-                    opacity: 0.2
-                         
-
-    .hover-left-brain-overlay
-        svg
-            position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-0.25%, -50%)
-            width: 35vw
-            z-index: 6
-            fill: none
-            
-            .cls-1
-                opacity: 0.1
-                fill: #000
-                stroke: #fff
-
-                &:hover
-                    fill: #fff
-                    opacity: 0.2
-    
-    .landing-title
-        #title 
-            position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
-            width: 70vw
-            //margin-left: 35px
-            //margin-right: 291px
-            fill: transparent
-            z-index: 3
-
-            & polygon:nth-child(1)
-                stroke-dasharray: 786px
-                stroke-dashoffset: 786px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-            
-            & #A
-                stroke-dasharray: 389px
-                stroke-dashoffset: 389px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            & polygon:nth-child(3)
-                stroke-dasharray: 380px
-                stroke-dashoffset: 380px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            & polygon:nth-child(4)
-                stroke-dasharray: 380px
-                stroke-dashoffset: 380px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            & polygon:nth-child(5)
-                stroke-dasharray: 560px
-                stroke-dashoffset: 560px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-            
-            & polygon:nth-child(6)
-                stroke-dasharray: 513px
-                stroke-dashoffset: 513px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-            
-            & polygon:nth-child(7)
-                stroke-dasharray: 813px
-                stroke-dashoffset: 813px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            & #C
-                stroke-dasharray: 446px
-                stroke-dashoffset: 446px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            & polygon:nth-child(9)
-                stroke-dasharray: 560px
-                stroke-dashoffset: 560px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            & polygon:nth-child(10)
-                stroke-dasharray: 513px
-                stroke-dashoffset: 513px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            & polygon:nth-child(11)
-                stroke-dasharray: 602px
-                stroke-dashoffset: 602px
-                animation: text-outline-fill 4s ease forwards
-                animation-delay: 2s
-
-            @keyframes text-outline-fill 
-                70%
-                    stroke-dashoffset: 0px
-                    fill: transparent
- 
-                100%
-                    stroke-dashoffset: 0px
-                    fill: white
-
-    .landing-arrow
-        display: none
-        position: absolute
-        top: 96%
-        left: 50%
-        trasnform: translate(-50%, -50%)
-
-        span
-            display: block
-            width: 18px
-            height: 18px
-
-            border-bottom: 3px solid #ffffff
-            border-right: 3px solid #ffffff
-            border-radius: 1px
-
-            transform: rotate(45deg)
-            margin: -10px
-
-            animation: animate-arrow 2s infinite
-
-            @keyframes animate-arrow 
-                0%
-                    opacity: 0
-                    transform: rotate(45deg) translate(-10px, -10px)
-
-                50%
-                    opacity: 1
-
-                100%
-                    opacity: 0
-                    transform: rotate(45deg) translate(10px, 10px)
-
-    .landing-arrow.active
-        display: block
-
-.right-brain-stuff.active
-    background-color: $primary-color
-
-    width: 100%
-    height: 200vh
-
-.content-screen
-    width: 100%
-    height: 200vh
-
-    background-color: $primary-color
-
-    .developer-section
+    .matt-screen
         width: 100%
         height: 100%
 
-        .images
-            height: 0px
+        display: none
 
-        #first-section
-            position: absolute
-            width: 40vw
-            left: 50% 
-            margin-top: 50vh
-            transform: translateY(-50%)   
-            
-            .top-section
-                font-family: $main-font
-                font-weight: $light
-                font-style: normal
-                color: #ffffff
-
-                h1
-                    font-size: 70px
-                    margin: 0 0 30px 0
-                
-                p
-                    font-size: 22px
-                    margin: 0 0 40px 0
-
-            hr
-                width: 100%
-                height: 2px
-                border: none
-                background: linear-gradient(90deg,#ffffff 0%,#ffffff00 100%)
-                margin: 0 0 40px 0
-
-            .bottom-section
-                font-family: $main-font
-                font-weight: $heavy
-                font-style: normal
-                color: #ffffff
-                will-change: transform, opacity
-
-                p
-                    font-size: 25px
-                    margin: 0 0 30px 0
-
-                    .front-end
-                        color: #F8555D
-                    
-                    .back-end
-                        color: #55F8F0
-
-                #bottom-second-section
-                    opacity: 0
-                    transform: translateY(-15px)
-
-
-.cards-screen
-    width: 100%
-    height: 100vh
-
-    background-color: $secondary-color
-
-    display: flex
-    flex-wrap: wrap
-
-    justify-content: center
-    align-items: center
-
-    .wrap
-        margin: 25px
-        transform-style: preserve-3d
-        transform: perspective(100rem)
-        curson: pointer
-
-        .container
-            --rX: 0
-            --rY: 0
-            --bX: 50%
-            --bY: 80%
-
-            width: 24vw
-            height: 64vh
-
-            border: 1px solid $secondary-color
-            border-radius: 4%
-
-            padding: 15%
-
-            display: flex
-            align-items: flex-end
-            position: relative
-
-            transform: rotate(calc(var(--rX) * 0.25deg)) rotateY(calc(var(--rY) * 0.25deg))
-
-            background: linear-gradient(hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1)), url("https://images.unsplash.com/photo-1559113513-d5e09c78b9dd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9")
-            background-position: var(--bX) var(--bY)
-            background-size: 40rem auto
-
-            box-shadow: 0px 0px 15px 0.5px rgba(0, 0, 0, 0.25)
-            transition: transform 0.15s 
-
-            &:before, &:after
-                content: ""
-                width: 2rem
-                height: 2rem
-                border: 1px solid #fff
+        .matt-gif
+            #gif
                 position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                width: 60vw
+                z-index: 1
+
+        .matt-gif-overlay
+            #gif-overlay
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                width: 60vw
+                opacity: 0%
                 z-index: 2
-                opacity: 0.3
-                transition: 0.3s
-            
-            &:before
-                top: 2rem
-                right: 2rem
-                border-bottom-width: 0
-                border-left-width: 0
+                animation: image-reveal-2 0.5s ease forwards
+                animation-delay: 0.75s
 
-            &:after
-                bottom: 2rem
-                left: 2rem
-                border-top-width: 0
-                border-right-width: 0
-                          
-            p
-                color: #e7e8f1
-                font-size: 2.2rem
+                @keyframes image-reveal-2
+                    100%
+                        opacity: 100%
+        
+        .about-circles-overlay
+            z-index: 100
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            width: 60vw
 
-        .active-mode
-                transition: none
+            .expand
+                animation: expand 1.5s ease infinite
+                animation-delay: 2s
+                opacity: 0.25
 
-        .card-container-2
-            filter: hue-rotate(80deg) saturate(140%)
+                @keyframes expand
+                    0%
+                        opacity: 0.5
+                        r: 3
+                    100%
+                        opacity: 0
+                        r: 24
 
-        .card-container-3
-            filter: hue-rotate(160deg) saturate(140%)
+        .click-tag-wrapper
+            #click-tag
+                display: none
+                position: absolute
+                font-family: karbonR
+                font-size: 16px
+                transform: translateY(-50%)
+                z-index: 505
+                animation: fadeup 2s forwards
+                opacity: 0
+        
+                @keyframes fadeup 
+                    0%
+                        transform: translateY(50%)
+                        opacity: 0
+                    100% 
+                        opacity: 1
+                        transform: translateY(-50%)
+    
+    .photographer-screen
+        background-color: rgba(0, 0, 0, 0.9)
+        z-index: 500
+        display: none
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        overflow: scroll
 
-        &:hover .container:before, &:hover .container:after
-            width: calc(100% - 4rem)
-            height: calc(100% - 4rem)
-            
+        .photographer-content-wrapper
+            display: flex
+            flex-flow: row wrap
+            //justify-content: space-evenly
+            margin: 6% 6%
+            justify-content: center
+
+            .photograph
+                width: 21%
+                margin: 2%
+                z-index: 505
+
+    .photographer-screen.active
+        display: block
+        animation: fadeIn 1s ease forwards 
+
+        @keyframes fadeIn
+            0%
+                opacity: 0
+            100%
+                opacity: 1
+        
+    .designer-screen
+        background-color: rgba(0, 0, 0, 0.9)
+        z-index: 500
+        display: none
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        overflow: scroll
+
+        .designer-content-wrapper
+            display: flex
+            flex-flow: row wrap
+            //justify-content: space-evenly
+            margin: 6% 6%
+            justify-content: center
+
+            .design
+                width: 21%
+                margin: 2%
+                z-index: 505
+
+    .designer-screen.active
+        display: block
+        animation: fadeIn 1s ease forwards 
+
+        @keyframes fadeIn
+            0%
+                opacity: 0
+            100%
+                opacity: 1
+
+
+.regular-screen.active
+    animation: fadeIn 3s forwards
+
+    @keyframes fadeIn
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+                
+
+.regular-screen.light
+    background-color: #F3F3F3
+
+.light
+    .cursor
+        border: 2px solid #EAD8BF
+
+    .cursor.active
+        border-color: #9FBBC9
+
+    .inner-cursor
+        background: #EAD8BF
+
+    .left-arrow-cursor
+        #left-arrow-icon
+            line
+                stroke: #9FBBC9
+                
+    .right-arrow-cursor
+        #right-arrow-icon
+            line
+                stroke: #9FBBC9
+
+    .explore-tag-wrapper
+        #explore-tag
+            color: #EAD8BF
+
+    .nav-bar-top
+        #logo
+            fill: #505050
+
+        #nav-button
+            color: #505050
+
+    .light-dark-toggle
+        .circle
+            fill: #000
+
+    #light-dark-tag
+        color: #505050
+
+    .nav-bar-side
+        color: #505050
+        //.tab-list
+            //.tab
+                //color: #989898
+
+            //.tab.active
+                //color: #505050
+
+    .nav-bar-socials
+        .socials-title
+            color: #505050
+    
+    .matt-screen
+        .click-tag-wrapper
+            #click-tag
+                color: #505050
+
+    .contact-tag-wrapper
+            #contact-tag
+                color: #505050
+
+.regular-screen.dark
+    background-color: #1b1e23
+
+.dark
+    .cursor
+        border: 2px solid #F3F3F3
+
+    .cursor.active
+        border-color: #9FBBC9
+
+    .inner-cursor
+        background: #F3F3F3
+
+    .left-arrow-cursor
+        #left-arrow-icon
+            line
+                stroke: #9FBBC9
+
+    .right-arrow-cursor
+        #right-arrow-icon
+            line
+                stroke: #9FBBC9
+
+    .explore-tag-wrapper
+        #explore-tag
+            color: #F3F3F3
+
+    .nav-bar-top
+        #logo
+            fill: #F3F3F3
+
+        #nav-button
+            color: #F3F3F3
+
+    .light-dark-toggle
+        .circle
+            fill: #F3F3F3
+
+    #light-dark-tag
+        color: #F3F3F3
+
+    .nav-bar-side
+        color: #F3F3F3
+        //.tab-list
+            //.tab
+                //color: #d1d1d1be
+
+            //.tab.active
+                //color: #F3F3F3
+    
+    .matt-screen
+        .click-tag-wrapper
+            #click-tag
+                color: #F3F3F3
+
+    .nav-bar-socials
+        .socials-title
+            color: #F3F3F3
+
+        .tab-list-socials
+            .tab
+                img
+                    color: #F3F3F3
+
+    .contact-tag-wrapper
+        #contact-tag
+            color: #F3F3F3
+
+
+/*.contact-screen
+    z-index: 500
+    display: block
+
+    .contact-content-wrapper
+        z-index: 500
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 20vw
+        height: 25vw
+        min-width: 263px
+        min-height: 335px
+        
+        form
+            z-index: 500
+            border: 1px solid #000
+            border-radius: 25px
+            padding: 5vh 3vh 5vh 3vh
+            background-color: #f0f0f0
+
+            h3
+                font-family: karbonR
+                font-size: 16px
+                margin-bottom: 5px
+                letter-spacing: 1px
+
+            input
+                border-radius: 5px
+                border: 1px solid #000
+                font-family: karbonR
+                padding: 10px 5px 5px 5px
+                background: #f0f0f0
+
+            .name
+                width: 100%
+                display: flex
+
+                .first-name
+                    width: 45%
+                    margin: 5% 10% 0 0
+
+                    input
+                        width: 100%
+                        height: 35px
+
+                .last-name
+                    width: 45%
+                    margin-top: 5%
+
+                    input
+                        width: 100%
+                        height: 35px
+
+            .email
+                width: 100%
+                margin-top: 5%
+
+                input
+                    width: 100%
+                    height: 35px
+
+            .message
+                width: 100%
+                margin-top: 5%
+
+                textarea
+                    width: 100%
+                    height: 25%
+                    padding: 5px
+                    border-radius: 5px
+                    border: 1px solid #000
+                    font-family: karbonR
+                    background: #f0f0f0
+
+            #submit-button
+                margin-top: 5%
+                width: 100%
+                font-family: karbonR
+                border-color: #3898EC
+                background-color: #3898EC
+                color: #f0f0f0
+                letter-spacing: 1px*/

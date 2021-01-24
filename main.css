@@ -752,7 +752,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .regular-screen .photographer-screen .photographer-content-wrapper {
@@ -808,7 +809,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .regular-screen .designer-screen .designer-content-wrapper {

@@ -287,6 +287,15 @@ design_section.addEventListener("click", e => {
 const photograph_section = document.querySelector('#photographer-page');
 const photographs = document.querySelectorAll('.photograph');
 
+document.onkeydown = (e) => {
+    if ((e.key == "Escape" || e.key == "Esc") && photograph_section.classList.contains('active')) {
+        photograph_section.classList.remove('active');
+    }
+    if ((e.key == "Escape" || e.key == "Esc") && design_section.classList.contains('active')) {
+        design_section.classList.remove('active');
+    }
+}
+
 photograph_section.addEventListener("mouseover", e => {
     photographs.forEach(element => {
         element.addEventListener('mouseover', e => {

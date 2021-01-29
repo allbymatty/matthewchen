@@ -107,14 +107,14 @@ body {
 }
 
 .quick-about-wrapper .content-wrapper .titles {
-  font-size: 100px;
-  line-height: 100px;
+  font-size: 80px;
+  line-height: 80px;
 }
 
 .quick-about-wrapper .content-wrapper .about {
-  font-size: 30px;
+  font-size: 25px;
   font-family: karbonR;
-  line-height: 36px;
+  line-height: 31px;
   letter-spacing: 0.75px;
   margin: 4vh 0 0 0;
 }
@@ -165,16 +165,256 @@ body {
 .quick-about-wrapper .content-wrapper .contact {
   width: 250px;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 80px;
   text-align: center;
   font-family: karbonR;
-  font-size: 25px;
-  padding: 15px 15px 10px 15px;
+  font-size: 22px;
+  padding: 12px 12px 8px 12px;
   margin: 4vh 0 0 0;
   border: 0;
   line-height: inherit;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 424px) {
+  .quick-about-wrapper {
+    width: 100vw;
+    height: 100vh;
+    font-family: karbonSB;
+    background-size: 400% 400%;
+    -webkit-animation: mobile-background 9s ease infinite;
+    animation: mobile-background 9s ease infinite;
+  }
+  @-webkit-keyframes mobile-background {
+    0% {
+      background-position: 5% 0%;
+    }
+    50% {
+      background-position: 96% 100%;
+    }
+    100% {
+      background-position: 5% 0%;
+    }
+  }
+  @keyframes mobile-background {
+    0% {
+      background-position: 5% 0%;
+    }
+    50% {
+      background-position: 96% 100%;
+    }
+    100% {
+      background-position: 5% 0%;
+    }
+  }
+  .quick-about-wrapper .content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .quick-about-wrapper .content-wrapper #logo {
+    height: 15px;
+    margin: 0 0 6vh 6px;
+  }
+  .quick-about-wrapper .content-wrapper .light-dark-toggle {
+    position: absolute;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+    margin: 0 0 0 8px;
+    height: 10px;
+    width: 10px;
+    z-index: 100;
+  }
+  .quick-about-wrapper .content-wrapper .light-dark-toggle circle {
+    cx: 4px;
+    cy: 4px;
+    r: 3px;
+  }
+  .quick-about-wrapper .content-wrapper .titles {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .quick-about-wrapper .content-wrapper .about {
+    font-size: 10px;
+    font-family: karbonR;
+    line-height: 14px;
+    letter-spacing: 0.4px;
+    margin: 4vh 0 0 0;
+  }
+  .quick-about-wrapper .content-wrapper .socials {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .quick-about-wrapper .content-wrapper .socials a {
+    text-decoration: none;
+    cursor: none;
+    padding: 4vh 25px 0 0;
+  }
+  .quick-about-wrapper .content-wrapper .socials a .socials-title {
+    font-family: karbonR;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    z-index: 100;
+    opacity: 0.75;
+  }
+  .quick-about-wrapper .content-wrapper .socials a .socials-title:hover {
+    -webkit-animation: hover-opacity 0.25s linear 0s forwards;
+            animation: hover-opacity 0.25s linear 0s forwards;
+  }
+  @-webkit-keyframes hover-opacity {
+    0% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes hover-opacity {
+    0% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .quick-about-wrapper .content-wrapper .contact {
+    width: 75px;
+    display: inline-block;
+    border-radius: 75px;
+    text-align: center;
+    font-family: karbonR;
+    font-size: 10px;
+    padding: 7px 10px 5px 10px;
+    margin: 4vh 0 0 0;
+    border: 0;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 424px) and (max-width: 767px) {
+  .quick-about-wrapper {
+    width: 100vw;
+    height: 100vh;
+    font-family: karbonSB;
+    background-size: 400% 400%;
+    -webkit-animation: mobile-background 9s ease infinite;
+    animation: mobile-background 9s ease infinite;
+  }
+  @-webkit-keyframes mobile-background {
+    0% {
+      background-position: 5% 0%;
+    }
+    50% {
+      background-position: 96% 100%;
+    }
+    100% {
+      background-position: 5% 0%;
+    }
+  }
+  @keyframes mobile-background {
+    0% {
+      background-position: 5% 0%;
+    }
+    50% {
+      background-position: 96% 100%;
+    }
+    100% {
+      background-position: 5% 0%;
+    }
+  }
+  .quick-about-wrapper .content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .quick-about-wrapper .content-wrapper #logo {
+    height: 25px;
+    margin: 0 0 6vh 6px;
+  }
+  .quick-about-wrapper .content-wrapper .light-dark-toggle {
+    position: absolute;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+    margin: 0 0 0 8px;
+    height: 20px;
+    width: 20px;
+    z-index: 100;
+  }
+  .quick-about-wrapper .content-wrapper .light-dark-toggle circle {
+    cx: 6px;
+    cy: 6px;
+    r: 5px;
+  }
+  .quick-about-wrapper .content-wrapper .titles {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .quick-about-wrapper .content-wrapper .about {
+    font-size: 15px;
+    font-family: karbonR;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    margin: 4vh 0 0 0;
+  }
+  .quick-about-wrapper .content-wrapper .socials {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .quick-about-wrapper .content-wrapper .socials a {
+    text-decoration: none;
+    cursor: none;
+    padding: 4vh 25px 0 0;
+  }
+  .quick-about-wrapper .content-wrapper .socials a .socials-title {
+    font-family: karbonR;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    z-index: 100;
+    opacity: 0.75;
+  }
+  .quick-about-wrapper .content-wrapper .socials a .socials-title:hover {
+    -webkit-animation: hover-opacity 0.25s linear 0s forwards;
+            animation: hover-opacity 0.25s linear 0s forwards;
+  }
+  @-webkit-keyframes hover-opacity {
+    0% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes hover-opacity {
+    0% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .quick-about-wrapper .content-wrapper .contact {
+    width: 150px;
+    display: inline-block;
+    border-radius: 100px;
+    text-align: center;
+    font-family: karbonR;
+    font-size: 15px;
+    padding: 10px 10px 5px 10px;
+    margin: 4vh 0 0 0;
+    border: 0;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 .mobile-screen.light .quick-about-wrapper {

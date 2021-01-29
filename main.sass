@@ -25,7 +25,7 @@ $mobile-small: 424px
 $mobile-large: 767px
 $tablet: 1023px
 $laptop-small: 1439px
-$laptop-large: 2569px
+$laptop-large: 2569px    
 
 @media only screen and ( max-width: $tablet )
     .mobile-screen
@@ -55,7 +55,7 @@ body
     background-color: #F3F3F3
     cursor: none
     overflow: hidden
-    
+
 .quick-about-wrapper
     width: 100vw
     height: 100vh
@@ -96,13 +96,13 @@ body
             z-index: 100
 
         .titles
-            font-size: 100px
-            line-height: 100px
+            font-size: 80px
+            line-height: 80px
 
         .about
-            font-size: 30px
+            font-size: 25px
             font-family: karbonR
-            line-height: 36px
+            line-height: 31px
             letter-spacing: 0.75px
             margin: 4vh 0 0 0
 
@@ -132,16 +132,202 @@ body
         .contact
             width: 250px
             display: inline-block
-            border-radius: 100px
+            border-radius: 80px
             text-align: center
             font-family: karbonR
-            font-size: 25px
-            padding: 15px 15px 10px 15px
+            font-size: 22px
+            padding: 12px 12px 8px 12px
             margin: 4vh 0 0 0
             border: 0
             line-height: inherit
             text-decoration: none
             cursor: pointer
+
+@media only screen and ( max-width: $mobile-small )
+    .quick-about-wrapper
+        width: 100vw
+        height: 100vh
+
+        font-family: karbonSB
+
+        background-size: 400% 400%
+
+        -webkit-animation: mobile-background 9s ease infinite
+        -moz-animation: mobile-background 9s ease infinite
+        animation: mobile-background 9s ease infinite
+
+        @keyframes mobile-background 
+            0% 
+                background-position: 5% 0%
+            50% 
+                background-position: 96% 100%
+            100% 
+                background-position: 5% 0%
+        
+
+        .content-wrapper
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+
+            #logo
+                height: 15px
+                margin: 0 0 6vh 6px
+
+            .light-dark-toggle
+                position: absolute
+                transform: translateY(-5px)
+                margin: 0 0 0 8px
+                height: 10px
+                width: 10px
+                z-index: 100
+
+                circle
+                    cx: 4px
+                    cy: 4px
+                    r: 3px
+
+            .titles
+                font-size: 30px
+                line-height: 30px
+
+            .about
+                font-size: 10px
+                font-family: karbonR
+                line-height: 14px
+                letter-spacing: 0.4px
+                margin: 4vh 0 0 0
+
+            .socials
+                display: flex
+                a
+                    text-decoration: none
+                    cursor: none
+                    padding: 4vh 25px 0 0
+
+                    .socials-title
+                        font-family: karbonR
+                        font-size: 10px
+                        letter-spacing: 0.5px
+                        z-index: 100
+                        opacity: 0.75
+
+                        &:hover
+                            animation: hover-opacity 0.25s linear 0s forwards
+
+                            @keyframes hover-opacity
+                                0%
+                                    opacity: 0.75
+                                100%
+                                    opacity: 1
+
+            .contact
+                width: 75px
+                display: inline-block
+                border-radius: 75px
+                text-align: center
+                font-family: karbonR
+                font-size: 10px
+                padding: 7px 10px 5px 10px
+                margin: 4vh 0 0 0
+                border: 0
+                line-height: inherit
+                text-decoration: none
+                cursor: pointer
+
+@media only screen and ( min-width: $mobile-small ) and ( max-width: $mobile-large )
+    .quick-about-wrapper
+        width: 100vw
+        height: 100vh
+
+        font-family: karbonSB
+
+        background-size: 400% 400%
+
+        -webkit-animation: mobile-background 9s ease infinite
+        -moz-animation: mobile-background 9s ease infinite
+        animation: mobile-background 9s ease infinite
+
+        @keyframes mobile-background 
+            0% 
+                background-position: 5% 0%
+            50% 
+                background-position: 96% 100%
+            100% 
+                background-position: 5% 0%
+        
+
+        .content-wrapper
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+
+            #logo
+                height: 25px
+                margin: 0 0 6vh 6px
+
+            .light-dark-toggle
+                position: absolute
+                transform: translateY(-5px)
+                margin: 0 0 0 8px
+                height: 20px
+                width: 20px
+                z-index: 100
+
+                circle
+                    cx: 6px
+                    cy: 6px
+                    r: 5px
+
+            .titles
+                font-size: 50px
+                line-height: 50px
+
+            .about
+                font-size: 15px
+                font-family: karbonR
+                line-height: 21px
+                letter-spacing: 0.5px
+                margin: 4vh 0 0 0
+
+            .socials
+                display: flex
+                a
+                    text-decoration: none
+                    cursor: none
+                    padding: 4vh 25px 0 0
+
+                    .socials-title
+                        font-family: karbonR
+                        font-size: 15px
+                        letter-spacing: 0.5px
+                        z-index: 100
+                        opacity: 0.75
+
+                        &:hover
+                            animation: hover-opacity 0.25s linear 0s forwards
+
+                            @keyframes hover-opacity
+                                0%
+                                    opacity: 0.75
+                                100%
+                                    opacity: 1
+
+            .contact
+                width: 150px
+                display: inline-block
+                border-radius: 100px
+                text-align: center
+                font-family: karbonR
+                font-size: 15px
+                padding: 10px 10px 5px 10px
+                margin: 4vh 0 0 0
+                border: 0
+                line-height: inherit
+                text-decoration: none
+                cursor: pointer
 
 .mobile-screen.light
     .quick-about-wrapper

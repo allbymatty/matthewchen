@@ -234,13 +234,13 @@ body {
     r: 3px;
   }
   .quick-about-wrapper .content-wrapper .titles {
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 35px;
+    line-height: 35px;
   }
   .quick-about-wrapper .content-wrapper .about {
-    font-size: 10px;
+    font-size: 12px;
     font-family: karbonR;
-    line-height: 14px;
+    line-height: 18px;
     letter-spacing: 0.4px;
     margin: 4vh 0 0 0;
   }
@@ -282,7 +282,7 @@ body {
     }
   }
   .quick-about-wrapper .content-wrapper .contact {
-    width: 75px;
+    width: 100px;
     display: inline-block;
     border-radius: 75px;
     text-align: center;
@@ -376,7 +376,7 @@ body {
   }
   .quick-about-wrapper .content-wrapper .socials a .socials-title {
     font-family: karbonR;
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 0.5px;
     z-index: 100;
     opacity: 0.75;
@@ -799,19 +799,23 @@ body {
 }
 
 .regular-screen .nav-bar-socials #linkedin {
-  top: 38%;
+  top: 34%;
 }
 
 .regular-screen .nav-bar-socials #github {
-  top: 46%;
+  top: 42%;
 }
 
-.regular-screen .nav-bar-socials #medium {
-  top: 54%;
+.regular-screen .nav-bar-socials #resume {
+  top: 50%;
 }
 
 .regular-screen .nav-bar-socials #facebook {
-  top: 62%;
+  top: 58%;
+}
+
+.regular-screen .nav-bar-socials #medium {
+  top: 66%;
 }
 
 .regular-screen .nav-bar-designs {

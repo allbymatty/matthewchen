@@ -120,6 +120,8 @@ screenMode.forEach(element => {
 
             desktopScreen.classList.remove("light");
             desktopScreen.classList.add("dark");
+
+            innerCursor.style.removeProperty('background');
         }
         else {
             mobileScreen.classList.remove("dark");
@@ -127,6 +129,8 @@ screenMode.forEach(element => {
 
             desktopScreen.classList.remove("dark");
             desktopScreen.classList.add("light");
+
+            innerCursor.style.removeProperty('background');
         }
     })
 

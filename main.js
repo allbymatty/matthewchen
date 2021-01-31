@@ -23,12 +23,13 @@ const emailTag = document.querySelector('#contact-tag');
 
 document.addEventListener('mousemove', e => {
     cursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
+    
     innerCursor.style.top = e.pageY;
     innerCursor.style.left = e.pageX;
-    //innerCursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
+
     leftArrowCursor.style.top = e.pageY;
     leftArrowCursor.style.left = e.pageX;
-    //leftArrowCursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
+
     rightArrowCursor.style.top = e.pageY;
     rightArrowCursor.style.left = e.pageX;
 
@@ -53,26 +54,14 @@ document.addEventListener('click', e => {
     }, 200)
 });
 
-/*const linkedinButton = document.querySelector('#linkedin');
-const githubButton = document.querySelector('#github');
-const mediumButton = document.querySelector('#medium');
-const facebookButton = document.querySelector('#facebook');*/
 const socialsButton = document.querySelectorAll('.socials-title');
-//const socialIcons = document.querySelector('.tab-list-socials');
 
 socialsButton.forEach(element => {
     element.addEventListener("mouseover", e => {
-        /*if (socials.classList.contains("active")) {
-            innerCursor.style.opacity = 0;
-            leftArrowCursor.style.opacity = 0;
-            rightArrowCursor.style.opacity = 1;
-        }
-        else {*/
-            innerCursor.style.opacity = 0;
-            leftArrowCursor.style.opacity = 0;
-            rightArrowCursor.style.opacity = 1;
-            cursor.classList.add('active');
-        //}
+        innerCursor.style.opacity = 0;
+        leftArrowCursor.style.opacity = 0;
+        rightArrowCursor.style.opacity = 1;
+        cursor.classList.add('active');
     });
 
     element.addEventListener("mouseleave", e=> {
@@ -81,30 +70,6 @@ socialsButton.forEach(element => {
         rightArrowCursor.style.opacity = 0;
         cursor.classList.remove('active');
     });
-    
-    /*element.addEventListener("click", e => {
-        if (socials.classList.contains("active")) {
-            socials.classList.remove("active");
-            socialIcons.classList.remove("active");
-        }
-        else {
-            socials.classList.add("active");
-            socialIcons.classList.add("active");
-        }
-    
-        setTimeout(() => {
-            if (socials.classList.contains("active")) {
-                innerCursor.style.opacity = 0;
-                leftArrowCursor.style.opacity = 0;
-                rightArrowCursor.style.opacity = 1;
-            }
-            else {
-                innerCursor.style.opacity = 0;
-                leftArrowCursor.style.opacity = 1;
-                rightArrowCursor.style.opacity = 0;
-            }
-        }, 100)
-    });*/
 })
 
 const screenMode = document.querySelectorAll('.light-dark-toggle');
@@ -147,9 +112,6 @@ const contact = document.querySelector(".contact-wrapper");
 const contactH3Content = document.querySelector("#contact-tag");
 
 contact.addEventListener("mouseover", e => {
-    /*innerCursor.style.opacity = 0;
-    rightArrowCursor.style.opacity = 1;*/
-
     contact.classList.add('active');
     cursor.classList.add('active');
     emailTag.style.display = "block";
@@ -157,8 +119,6 @@ contact.addEventListener("mouseover", e => {
 })
 
 contact.addEventListener("mouseleave", e => {
-    /*innerCursor.style.opacity = 1;
-    rightArrowCursor.style.opacity = 0;*/
     contact.classList.remove('active');
     cursor.classList.remove('active');
     emailTag.style.display = "none";
@@ -226,7 +186,6 @@ circle_designer.addEventListener("mouseleave", e => {
 })
 
 circle_designer.addEventListener("click", e => {
-    //design_section.style.display = "block";
     design_section.classList.add('active')
 })
 
@@ -253,7 +212,6 @@ circle_photographer.addEventListener("mouseleave", e => {
 })
 
 circle_photographer.addEventListener("click", e => {
-    //photograph_section.style.display = "block";
     photograph_section.classList.add("active");
 })
 

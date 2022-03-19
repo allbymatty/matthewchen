@@ -16,6 +16,7 @@
 @media only screen and (max-width: 1023px) {
   .mobile-screen {
     display: block;
+    cursor: default !important;
   }
   .regular-screen {
     display: none;
@@ -127,7 +128,6 @@ body {
 
 .quick-about-wrapper .content-wrapper .socials a {
   text-decoration: none;
-  cursor: none;
   padding: 4vh 25px 0 0;
 }
 
@@ -371,7 +371,7 @@ body {
   }
   .quick-about-wrapper .content-wrapper .socials a {
     text-decoration: none;
-    cursor: none;
+    cursor: pointer;
     padding: 4vh 25px 0 0;
   }
   .quick-about-wrapper .content-wrapper .socials a .socials-title {

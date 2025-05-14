@@ -183,9 +183,9 @@ circle_designer.addEventListener("mouseleave", e => {
     description_regular.classList.add("active");
 })
 
-circle_designer.addEventListener("click", e => {
-    design_section.classList.add('active')
-})
+// circle_designer.addEventListener("click", e => {
+//     design_section.classList.add('active')
+// })
 
 circle_student.addEventListener("mouseover", e => {
     description_regular.classList.remove("active");

@@ -176,18 +176,16 @@ circle_developer.addEventListener("mouseleave", e => {
 circle_designer.addEventListener("mouseover", e => {
     description_regular.classList.remove("active");
     description_designer.classList.add("active");
-    sectionsTag.style.display = "block";
 })
 
 circle_designer.addEventListener("mouseleave", e => {
     description_designer.classList.remove("active");
     description_regular.classList.add("active");
-    sectionsTag.style.display = "none";
 })
 
-circle_designer.addEventListener("click", e => {
-    design_section.classList.add('active')
-})
+// circle_designer.addEventListener("click", e => {
+//     design_section.classList.add('active')
+// })
 
 circle_student.addEventListener("mouseover", e => {
     description_regular.classList.remove("active");
